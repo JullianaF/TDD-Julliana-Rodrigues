@@ -1,9 +1,13 @@
 class Item:
     def __init__(self, titulo, detalhes):
+        if not titulo:
+            raise ValueError("O título do item não pode ser vazio.")
         self.titulo = titulo
         self.detalhes = detalhes
         self.estado = "pendente"
 
+    def finalizar(self):
+        self.estado = "concluído"
+
     def como_dict(self):
-        # erro proposital: campo errado
-        return {"titulo": self.titulo, "descricao": self.detalhes, "estado": self.estado}
+        return {"titulo": self.titulo, "detalhes": self.detalhes, "estado": self.estado}
