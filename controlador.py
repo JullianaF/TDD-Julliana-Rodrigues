@@ -12,3 +12,17 @@ class ControladorDeItens:
 
     def listar_itens(self):
         return [i.como_dict() for i in self.itens]
+
+    def finalizar_item(self, titulo):
+        for i in self.itens:
+            if i.titulo == titulo:
+                i.finalizar()
+                return
+        raise ValueError("Item não encontrado.")
+
+    def remover_item(self, titulo):
+        for i in self.itens:
+            if i.titulo == titulo:
+                self.itens.remove(i)
+                return
+        raise ValueError("Item não encontrado.")

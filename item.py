@@ -11,3 +11,4 @@ class Item:
 
     def como_dict(self):
         return {"titulo": self.titulo, "detalhes": self.detalhes, "estado": self.estado}
+
